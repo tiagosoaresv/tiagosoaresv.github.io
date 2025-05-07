@@ -4,7 +4,7 @@ import profilePic from "./assets/profile_picture.png";
 
 export default function ResumeSite() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-950 text-white p-12">
+    <div className="min-h-screen bg-gradient-to-b from-gray-830 to-gray-950 text-white p-12">
       <div className="max-w-5xl mx-auto">
 
         {/* Hero Section */}
@@ -12,7 +12,7 @@ export default function ResumeSite() {
           <head>
             <title>Tiago Soares</title>
           </head>
-          <div className="bg-gray-900 bg-opacity-70 p-8 rounded-2xl shadow-2xl backdrop-blur-md inline-block">
+          <div className="bg-gray-700 bg-opacity-70 p-8 rounded-2xl shadow-2xl backdrop-blur-md inline-block">
             <img
               src={profilePic}
               alt="Tiago Soares"
@@ -36,7 +36,7 @@ export default function ResumeSite() {
 
         {/* Mission Statement */}
         <section className="mb-12 text-center px-6">
-          <h2 className="text-3xl font-semibold text-burgundy-500 mb-4">Mission Statement</h2>
+          <h2 className="text-3xl font-semibold text-burgundy-500 mb-4">About me</h2>
           <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
             I'm a software engineering student at University of Minho, currently based in Braga, focused on full-stack development, AI integration, and product building. Seeking opportunities to grow, build, and innovate.
           </p>
