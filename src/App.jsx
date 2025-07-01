@@ -18,8 +18,8 @@ export default function ResumeSite() {
               alt="Tiago Soares"
               className="w-36 h-36 mx-auto rounded-full border-4 border-burgundy-600 shadow-md mb-6"
             />
-            <h1 className="text-5xl font-bold tracking-tight mb-2">Tiago Soares</h1>
-            <p className="text-lg text-gray-300">Software Engineering Student looking to build.</p>
+            <h1 className="text-5xl font-bold tracking-tight mb-2">tiago soares</h1>
+            <p className="text-lg text-gray-300">software engineering student building.</p>
             <div className="flex justify-center gap-6 mt-6 text-burgundy-400 text-2xl">
               <a href="mailto:xtiagosoares@gmail.com" aria-label="Email" className="hover:text-white transition">
                 <Mail />
@@ -36,10 +36,10 @@ export default function ResumeSite() {
 
         {/* Mission Statement */}
         <section className="mb-12 text-center px-6">
-          <h2 className="text-3xl font-semibold text-burgundy-500 mb-4">About me</h2>
+          <h2 className="text-3xl font-semibold text-burgundy-500 mb-4">about me</h2>
           <p className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
-            I'm a software engineering student at University of Minho, currently based in Braga,
-            focused on full-stack development, AI integration, and product building. Seeking
+            i'm a software engineering student at university of minho, currently based in braga,
+            focused on full-stack development, AI integration, and product building. seeking
             opportunities to grow, build, and innovate.
           </p>
         </section>
@@ -65,17 +65,17 @@ export default function ResumeSite() {
         <div className="w-full max-w-3xl mx-auto">
           {selected === "Projects" && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Soon</h2>
+              <h2 className="text-2xl font-bold">soon</h2>
               <div className="bg-[#1e1e1e] p-6 rounded-xl shadow-md border border-gray-700">
-                <h3 className="font-semibold text-white">Soon</h3>
+                <h3 className="font-semibold text-white">soon</h3>
                 <p className="text-sm text-gray-400 mt-1">
                 Soon
                 </p>
               </div>
               <div className="bg-[#1e1e1e] p-6 rounded-xl shadow-md border border-gray-700">
-                <h3 className="font-semibold text-white">Soon</h3>
+                <h3 className="font-semibold text-white">soon</h3>
                 <p className="text-sm text-gray-400 mt-1">
-                Soon                
+                soon                
                 </p>
               </div>
             </div>
@@ -83,9 +83,9 @@ export default function ResumeSite() {
 
           {selected === "Past Projects" && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Past Projects</h2>
+              <h2 className="text-2xl font-bold">past projects</h2>
               <div className="bg-[#1e1e1e] p-6 rounded-xl shadow-md border border-gray-700">
-                <h3 className="font-semibold text-white">Soon</h3>
+                <h3 className="font-semibold text-white">soon</h3>
                 <p className="text-sm text-gray-400 mt-1">
                   Soon
                 </p>
@@ -95,7 +95,7 @@ export default function ResumeSite() {
 
           {selected === "Goals & Connections" && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Soon</h2>
+              <h2 className="text-2xl font-bold">soon</h2>
               <p className="text-sm text-gray-300">
               Soon              
               </p>
