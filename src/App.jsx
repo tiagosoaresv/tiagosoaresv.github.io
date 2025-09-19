@@ -1,26 +1,38 @@
-import React from "react";
-import { Mail, Linkedin, Github } from "lucide-react";
-import profilePic from "./assets/profile_picture.png";
+import React, { useEffect, useState } from "react";
+import { Mail, Linkedin, Github, ExternalLink } from "lucide-react";
+import profilePic from "./assets/profile_picture.jpg";
 
 const projects = [
   {
-    title: "Project One",
-    blurb: "Concise one-liner about the project’s purpose.",
-    href: "#",
-  },
-  {
-    title: "Project Two",
-    blurb: "Small description that hints at impact.",
-    href: "#",
-  },
-  {
-    title: "Project Three",
-    blurb: "Another short summary and link to demo.",
-    href: "#",
+    title: "spotaa.eu",
+    href: "https://spotaa.eu",
+    blurb:
+      "Full-stack OOH (out-of-home) advertising platform with real-time billboard booking, media asset management, and modular campaign planning. Built with a composable architecture using Next.js, tRPC, Prisma and PostgreSQL.",
+    images: ["/spotaa.png", "/work/p1-2.svg"],
   },
 ];
 
+function getRoute() {
+  const hash = typeof window !== 'undefined' ? window.location.hash : '';
+  // Only treat hashes starting with "#/" as routes. Plain "#work" should scroll.
+  if (hash.startsWith('#/')) {
+    return hash.slice(2);
+  }
+  return '';
+}
+
 export default function Site() {
+  const [route, setRoute] = useState(getRoute());
+  useEffect(() => {
+    const onHash = () => setRoute(getRoute());
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  if (route === 'work') {
+    return <WorkPage />;
+  }
+
   return (
     <div className="min-h-screen w-full bg-black">
       {/* Hero */}
@@ -55,71 +67,146 @@ export default function Site() {
       {/* Work / Projects */}
       <section id="work" className="px-6 py-16 md:py-20 max-w-6xl mx-auto">
         <div className="h-px w-24 bg-gold/60 mb-6" aria-hidden />
-        <h2 className="font-playfair text-3xl md:text-4xl mb-8">Work</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <a key={p.title} href={p.href} className="card p-6 focus:outline-none focus:ring-2 focus:ring-gold/60">
-              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-              <p className="text-white/70 text-sm leading-relaxed">{p.blurb}</p>
-            </a>
+        <h2 className="font-playfair text-3xl md:text-4xl mb-8">Work.</h2>
+
+        <div className="space-y-8 md:space-y-10">
+          {projects.slice(0, 2).map((p) => (
+            <article
+              key={p.title}
+              className="group relative rounded-xl p-6 md:p-8 bg-white/0 hover:bg-white/[0.03] transition"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+                <div>
+                  <div className="h-0.5 w-12 bg-gold mb-4" aria-hidden />
+                  {p.href ? (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${p.title} (opens in new tab)`}
+                      className="inline-flex items-center gap-2 mb-2 underline-offset-4 hover:underline decoration-white/20 hover:decoration-gold/80 transition-colors"
+                    >
+                      <span className="text-2xl font-semibold hover:text-gold transition-colors">{p.title}</span>
+                      <ExternalLink className="w-4 h-4 text-white/60 transition-colors group-hover/link:text-gold" aria-hidden />
+                    </a>
+                  ) : (
+                    <h3 className="text-2xl font-semibold mb-2">{p.title}</h3>
+                  )}
+                  <p className="text-white/75 leading-relaxed">{p.blurb}</p>
+                </div>
+                <div className="rounded-xl overflow-hidden">
+                  {p.images?.[0] && (
+                    <img
+                      src={p.images[0]}
+                      alt={`${p.title} preview`}
+                      className="w-full h-44 md:h-56 object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  )}
+                </div>
+              </div>
+            </article>
           ))}
+        </div>
+
+        <div className="mt-10 md:mt-12 flex justify-end">
+          <a href="#/work" className="text-white/80 hover:text-gold transition">See more →</a>
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="px-6 py-16 md:py-20 max-w-6xl mx-auto">
+      {/* Connect */}
+      <section id="connect" className="px-6 py-14 md:py-20 max-w-6xl mx-auto">
         <div className="h-px w-24 bg-gold/60 mb-6" aria-hidden />
-        <h2 className="font-playfair text-3xl md:text-4xl mb-8">Connect</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <h2 className="font-playfair text-3xl md:text-4xl mb-6 md:mb-10">Connect.</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div className="order-2 md:order-1">
-            <p className="text-white/85 leading-relaxed">
-              I’m a software engineer from Braga, studying at the University of Minho. I design systems end‑to‑end—front to back, data to deploy—with a bias for clarity, speed, and reliability. My work is direct: small surface area, strong foundations, no fluff. I use AI where it compounds output, not as decoration. I like hard problems: performance, product fit, and the seams where design meets engineering. I move quickly, communicate clearly, and ship. I’m looking to join a sharp team where ownership is real and results matter. If you want thoughtful execution with high standards and low noise, we should talk.
+            <p className="text-white/85 leading-relaxed text-justify">
+              I’m Tiago — a builder with a disciplined, product‑first approach. I design and ship software end to end: clear interfaces, reliable systems, and fast delivery. I care about performance, detail, and cultural context—the things that make products feel inevitable. I collaborate well with autonomous teams and communicate directly. I move quickly without breaking fundamentals and keep standards high. If you want a competent partner who can think, prototype, and execute with taste and rigor, I’d love to connect.
             </p>
+            <div className="mt-5 md:mt-6 flex items-center gap-5 text-white/80">
+              <a href="mailto:xtiagosoares@gmail.com" aria-label="Email" className="transition hover:text-gold"><Mail /></a>
+              <a href="https://linkedin.com/in/tiagosoaresv" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition hover:text-gold"><Linkedin /></a>
+              <a href="https://github.com/tiagosoaresv" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition hover:text-gold"><Github /></a>
+              <a href="https://x.com/tiagosoaresv" target="_blank" rel="noreferrer" aria-label="X" className="transition hover:text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3 L21 21" />
+                  <path d="M21 3 L3 21" />
+                </svg>
+              </a>
+            </div>
           </div>
           <div className="order-1 md:order-2 flex justify-center">
             <img
               src={profilePic}
               alt="Portrait of Tiago Soares"
-              className="w-full max-w-sm aspect-[3/4] object-cover rounded-xl grayscale"
+              className="w-40 md:w-56 aspect-[3/4] object-cover rounded-xl grayscale"
             />
           </div>
         </div>
       </section>
+    </div>
+  );
+}
 
-      {/* Connect */}
-      <footer id="connect" className="px-6 py-12 border-t border-white/10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-white/60 text-sm">Open to hard problems—let’s talk.</div>
-          <div className="flex items-center gap-5 text-white/80">
-            <a
-              href="mailto:xtiagosoares@gmail.com"
-              aria-label="Email"
-              className="hover:text-white transition"
-            >
-              <Mail />
-            </a>
-            <a
-              href="https://linkedin.com/in/tiagosoaresv"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-white transition"
-            >
-              <Linkedin />
-            </a>
-            <a
-              href="https://github.com/tiagosoaresv"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="hover:text-white transition"
-            >
-              <Github />
-            </a>
-
+function WorkPage() {
+  return (
+    <div className="min-h-screen w-full bg-black">
+      <section className="px-6 py-16 md:py-20 max-w-6xl mx-auto">
+        <div className="flex items-center justify-between mb-6 md:mb-8">
+          <div>
+            <div className="h-px w-24 bg-gold/60 mb-6" aria-hidden />
+            <h1 className="font-playfair text-3xl md:text-4xl">Work</h1>
           </div>
+          <a href="#/" className="text-white/70 hover:text-gold transition">Back</a>
         </div>
-      </footer>
+
+        <div className="space-y-10 md:space-y-12">
+          {projects.map((p) => (
+            <article key={p.title} className="group relative rounded-xl p-6 md:p-8 bg-white/0 hover:bg-white/[0.03] transition">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
+                <div>
+                  <div className="h-0.5 w-12 bg-gold mb-4" aria-hidden />
+                  {p.href ? (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${p.title} (opens in new tab)`}
+                      className="inline-flex items-center gap-2 mb-2 underline-offset-4 hover:underline decoration-white/20 hover:decoration-gold/80 transition-colors"
+                    >
+                      <span className="text-2xl md:text-3xl font-semibold hover:text-gold transition-colors">{p.title}</span>
+                      <ExternalLink className="w-4 h-4 text-white/60" aria-hidden />
+                    </a>
+                  ) : (
+                    <h2 className="text-2xl md:text-3xl font-semibold mb-2">{p.title}</h2>
+                  )}
+                  <p className="text-white/80 leading-relaxed">{p.blurb}</p>
+                </div>
+                <div className="rounded-xl overflow-hidden">
+                  {p.images?.[0] && (
+                    <img
+                      src={p.images[0]}
+                      alt={`${p.title} main`}
+                      className="w-full h-56 md:h-72 object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  )}
+                </div>
+              </div>
+              {p.images && p.images.length > 1 && (
+                <div className="mt-4 md:mt-5 flex gap-3 overflow-x-auto">
+                  {p.images.slice(1).map((src, i) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`${p.title} detail ${i + 2}`}
+                      className="h-20 w-32 object-cover rounded-md flex-none"
+                    />
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

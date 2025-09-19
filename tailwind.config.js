@@ -6,7 +6,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        burgundy: "#800020",
         gold: "#D4AF37",
       },
       fontFamily: {
