@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html { @apply bg-black text-white font-inter; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center rounded-md bg-burgundy text-white px-4 py-2 text-sm font-medium tracking-wide transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lift focus:outline-none focus:ring-2 focus:ring-burgundy/60; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-md border border-burgundy text-burgundy px-4 py-2 text-sm font-medium tracking-wide transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lift hover:bg-burgundy/10 focus:outline-none focus:ring-2 focus:ring-burgundy/40; }
+  .card { @apply rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-lift; }
+}
