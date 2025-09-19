@@ -34,22 +34,27 @@ export default function Site() {
           aria-hidden
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/70" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black"
+          aria-hidden
+        />
         <div className="relative z-10 px-6 max-w-3xl animate-fade-in">
           <h1 className="font-playfair text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight">
             Tiago Soares
           </h1>
           <p className="mt-4 text-lg text-white/80">
-            I build fast, clean software for ambitious teams.
+            Building fast, clean software in ambitious environments.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
-            <a href="#work" className="btn">View Work</a>
-            <a href="#about" className="btn-outline">About Me</a>
+            <a href="#work" className="btn">Work</a>
+            <a href="#connect" className="btn-outline">Connect</a>
           </div>
         </div>
       </section>
 
       {/* Work / Projects */}
       <section id="work" className="px-6 py-16 md:py-20 max-w-6xl mx-auto">
+        <div className="h-px w-24 bg-gold/60 mb-6" aria-hidden />
         <h2 className="font-playfair text-3xl md:text-4xl mb-8">Work</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
@@ -63,7 +68,8 @@ export default function Site() {
 
       {/* About */}
       <section id="about" className="px-6 py-16 md:py-20 max-w-6xl mx-auto">
-        <h2 className="font-playfair text-3xl md:text-4xl mb-8">About</h2>
+        <div className="h-px w-24 bg-gold/60 mb-6" aria-hidden />
+        <h2 className="font-playfair text-3xl md:text-4xl mb-8">Connect</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="order-2 md:order-1">
             <p className="text-white/85 leading-relaxed">
