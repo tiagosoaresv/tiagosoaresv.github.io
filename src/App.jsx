@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Github } from "lucide-react";
 import profilePic from "./assets/photo2.jpg";
 import projects from "./data/projects";
 import WorkPage from "./pages/WorkPage.jsx";
@@ -134,15 +134,29 @@ export default function Site() {
               If this resonates—professionally or personally—say hello. I read every message.
             </p>
             <div className="mt-5 md:mt-6 flex items-center gap-5 text-white/80">
-              <a href="mailto:xtiagosoares@gmail.com" title="Email" aria-label="Email" className="transition hover:text-gold"><Mail /></a>
-              <a href="https://linkedin.com/in/tiagosoaresv" title="LinkedIn" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition hover:text-gold"><Linkedin /></a>
-              <a href="https://github.com/tiagosoaresv" title="GitHub" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition hover:text-gold"><Github /></a>
-              <a href="https://x.com/tiagosoaresv" title="X" target="_blank" rel="noreferrer" aria-label="X" className="transition hover:text-gold">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 3 L21 21" />
-                  <path d="M21 3 L3 21" />
+              <a
+                href="https://x.com/tiagosoaresv"
+                title="X (primary contact)"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="X (primary contact)"
+                className="transition text-gold hover:text-gold/80"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 300 300"
+                  width="22"
+                  height="22"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M37 0h65.3l71.3 96.5L255 .3h66.5l-116.9 130L325 300h-67L178.4 199.4 96.4 300H28.5l117.3-136.8L37 0z"
+                  />
                 </svg>
               </a>
+              <a href="mailto:xtiagosoares@gmail.com" title="Email" aria-label="Email" className="transition hover:text-gold"><Mail /></a>
+              <a href="https://github.com/tiagosoaresv" title="GitHub" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition hover:text-gold"><Github /></a>
             </div>
           </div>
           <div className="order-1 md:order-2 flex justify-center">
