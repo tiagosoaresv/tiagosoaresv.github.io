@@ -128,7 +128,7 @@ export default function Site() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div className="order-2 md:order-1">
             <p className="text-white/85 leading-relaxed text-justify">
-              I’m <span className="text-gold">Tiago Soares</span> — a builder with a disciplined, product-first approach. I design and ship software end to end: clear interfaces, reliable systems, fast delivery. Performance, detail, and cultural context drive my work. I move quickly without breaking fundamentals and keep standards high. I work best with autonomous teams and direct communication. I move between engineer and entrepreneur—whatever it takes to push a product forward. My focus is asymmetry: bold moves, rare Black Swan events, outcomes that compound. </p>
+              I’m <span className="text-gold">Tiago Soares</span> — a builder with a disciplined, product-first approach. I design and ship software end to end: clear interfaces, reliable systems, fast delivery. Performance, detail, and cultural context drive my work. I move quickly without breaking fundamentals and keep standards high. I work best with autonomous teams and direct communication. I move between engineer and entrepreneur - whatever it takes to push a product forward. My focus is asymmetry: bold moves, rare Black Swan events, outcomes that compound. </p>
             <p className="mt-3 text-sm text-white/70">
               If this resonates - professionally or personally - say hello. I read every message.
             </p>
